@@ -1,0 +1,57 @@
+body {
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5eff2;
+}
+
+section {
+  padding: 40px;
+  border-bottom: 1px solid #161515;
+  max-width: 800px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+div {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+}
+/* Layout container */
+.container {
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+/* Main content */
+.main {
+  flex: 1;
+  padding: 40px;
+}
+
+/* Cards */
+.card {
+  background: rgb(255, 254, 255);
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+}
+
