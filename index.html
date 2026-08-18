@@ -6,639 +6,211 @@
   <title>Juliette Côté | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
- 
+
   <style>
-    /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- 
+
     :root {
-      --bg: #faf8f6;
-      --white: #ffffff;
-      --text: #1c1c1c;
-      --text-muted: #6b6b6b;
-      --accent: #9c6b4e;
-      --accent-light: #f3ece7;
-      --border: #e8e2de;
-      --card-shadow: 0 2px 20px rgba(0,0,0,0.07);
+      --bg: #faf8f6; --white: #ffffff; --text: #1c1c1c;
+      --text-muted: #6b6b6b; --accent: #9c6b4e;
+      --accent-light: #f3ece7; --border: #e8e2de;
       --card-shadow-hover: 0 8px 40px rgba(0,0,0,0.13);
       --nav-height: 68px;
     }
- 
+
     html { scroll-behavior: smooth; }
- 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
- 
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
- 
+
     /* ===== NAVBAR ===== */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: var(--nav-height);
-      background: rgba(250, 248, 246, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 56px;
-      z-index: 100;
-      transition: box-shadow 0.3s;
+      position: fixed; top: 0; left: 0; right: 0; height: var(--nav-height);
+      background: rgba(250,248,246,0.92); backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 56px; z-index: 100; transition: box-shadow 0.3s;
     }
- 
     nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
- 
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-    }
- 
-    .nav-links {
-      display: flex;
-      gap: 36px;
-      list-style: none;
-    }
- 
-    .nav-links a {
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      transition: color 0.2s;
-      position: relative;
-    }
- 
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0;
-      width: 0; height: 1px;
-      background: var(--accent);
-      transition: width 0.3s;
-    }
- 
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); transition: color 0.2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s; }
     .nav-links a:hover { color: var(--text); }
     .nav-links a:hover::after { width: 100%; }
- 
+
     /* ===== HERO ===== */
-    .hero {
-      min-height: 100vh;
-      padding: calc(var(--nav-height) + 80px) 56px 80px;
-      display: flex;
-      align-items: center;
-      max-width: 1100px;
-      margin: 0 auto;
-      gap: 60px;
-    }
- 
+    .hero { min-height: 100vh; padding: calc(var(--nav-height) + 80px) 56px 80px; display: flex; align-items: center; max-width: 1100px; margin: 0 auto; gap: 60px; }
     .hero-content { flex: 1; }
- 
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--accent-light);
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 100px;
-      margin-bottom: 28px;
-    }
- 
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 28px; }
     .hero-tag span { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
- 
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(48px, 6vw, 80px);
-      line-height: 1.08;
-      font-weight: 700;
-      margin-bottom: 24px;
-      letter-spacing: -0.02em;
-    }
- 
-    .hero h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
- 
-    .hero-desc {
-      font-size: 16px;
-      color: var(--text-muted);
-      max-width: 480px;
-      line-height: 1.8;
-      margin-bottom: 40px;
-    }
- 
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
- 
-    .btn-primary {
-      background: var(--text);
-      color: var(--white);
-      padding: 13px 28px;
-      font-size: 14px;
-      font-weight: 500;
-      border-radius: 2px;
-      transition: background 0.2s, transform 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
- 
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(48px, 6vw, 80px); line-height: 1.08; font-weight: 700; margin-bottom: 24px; letter-spacing: -0.02em; }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero-desc { font-size: 16px; color: var(--text-muted); max-width: 480px; line-height: 1.8; margin-bottom: 40px; }
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .btn-primary { background: var(--text); color: var(--white); padding: 13px 28px; font-size: 14px; font-weight: 500; border-radius: 2px; transition: background 0.2s, transform 0.2s; display: inline-flex; align-items: center; gap: 8px; }
     .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
- 
-    .btn-secondary {
-      color: var(--text-muted);
-      font-size: 14px;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
-    }
- 
+    .btn-secondary { color: var(--text-muted); font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
     .btn-secondary:hover { color: var(--text); border-color: var(--text); }
- 
-    .social-icons {
-      display: flex;
-      gap: 14px;
-      margin-top: 48px;
-    }
- 
-    .social-icons a {
-      width: 40px; height: 40px;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 15px;
-      color: var(--text-muted);
-      transition: all 0.2s;
-    }
- 
-    .social-icons a:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
- 
-    /* Hero image */
-    .hero-image {
-      width: 360px;
-      min-width: 360px;
-      position: relative;
-    }
- 
-    .hero-image::before {
-      content: '';
-      position: absolute;
-      top: 20px; left: 20px; right: -20px; bottom: -20px;
-      border: 2px solid var(--accent-light);
-      border-radius: 4px;
-      z-index: 0;
-    }
- 
-    .hero-image img {
-      width: 100%;
-      height: 440px;
-      object-fit: cover;
-      border-radius: 4px;
-      position: relative;
-      z-index: 1;
-      filter: grayscale(15%);
-    }
- 
-    .hero-image-placeholder {
-      width: 100%;
-      height: 440px;
-      background: linear-gradient(135deg, var(--accent-light) 0%, #e8ddd8 100%);
-      border-radius: 4px;
-      position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 12px;
-      color: var(--accent);
-    }
- 
+    .social-icons { display: flex; gap: 14px; margin-top: 48px; }
+    .social-icons a { width: 40px; height: 40px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--text-muted); transition: all 0.2s; }
+    .social-icons a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    .hero-image { width: 360px; min-width: 360px; position: relative; }
+    .hero-image::before { content: ''; position: absolute; top: 20px; left: 20px; right: -20px; bottom: -20px; border: 2px solid var(--accent-light); border-radius: 4px; z-index: 0; }
+    .hero-image img { width: 100%; height: 440px; object-fit: cover; border-radius: 4px; position: relative; z-index: 1; filter: grayscale(15%); }
+    .hero-image-placeholder { width: 100%; height: 440px; background: linear-gradient(135deg, var(--accent-light) 0%, #e8ddd8 100%); border-radius: 4px; position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; color: var(--accent); }
     .hero-image-placeholder i { font-size: 40px; opacity: 0.5; }
     .hero-image-placeholder p { font-size: 13px; opacity: 0.7; }
- 
-    /* ===== SECTION BASE ===== */
-    .section {
-      padding: 100px 56px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
- 
-    .section-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
- 
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(32px, 4vw, 44px);
-      font-weight: 700;
-      line-height: 1.15;
-      margin-bottom: 16px;
-      letter-spacing: -0.01em;
-    }
- 
-    .section-subtitle {
-      font-size: 15px;
-      color: var(--text-muted);
-      max-width: 520px;
-      line-height: 1.8;
-      margin-bottom: 56px;
-    }
- 
-    .section-divider {
-      width: 100%;
-      height: 1px;
-      background: var(--border);
-      margin: 0;
-    }
- 
+
+    /* ===== SECTIONS ===== */
+    .section { padding: 100px 56px; max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 44px); font-weight: 700; line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.01em; }
+    .section-subtitle { font-size: 15px; color: var(--text-muted); max-width: 520px; line-height: 1.8; margin-bottom: 56px; }
+    .section-divider { width: 100%; height: 1px; background: var(--border); }
+
     /* ===== ABOUT ===== */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
- 
-    .about-text p {
-      font-size: 15px;
-      color: var(--text-muted);
-      line-height: 1.9;
-      margin-bottom: 20px;
-    }
- 
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .about-text p { font-size: 15px; color: var(--text-muted); line-height: 1.9; margin-bottom: 20px; }
     .about-text p:last-child { margin-bottom: 0; }
- 
-    .about-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
- 
-    .stat-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      padding: 28px 24px;
-      border-radius: 4px;
-    }
- 
-    .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 40px;
-      font-weight: 700;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: 8px;
-    }
- 
-    .stat-label {
-      font-size: 13px;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
- 
-    /* Skills */
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 32px;
-    }
- 
-    .skill-tag {
-      background: var(--accent-light);
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 100px;
-      letter-spacing: 0.03em;
-    }
- 
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .stat-card { background: var(--white); border: 1px solid var(--border); padding: 28px 24px; border-radius: 4px; }
+    .stat-number { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 8px; }
+    .stat-label { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+    .skills-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+    .skill-tag { background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 100px; letter-spacing: 0.03em; }
+
     /* ===== PROJECTS ===== */
-    .projects-bg {
-      background: var(--white);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
- 
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
- 
-    .project-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
-    }
- 
-    .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--card-shadow-hover);
-    }
- 
-    .project-img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      background: linear-gradient(135deg, var(--accent-light), #e0d5cf);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent);
-      font-size: 32px;
-      opacity: 0.6;
-      transition: opacity 0.3s;
-    }
- 
-    .project-card:hover .project-img { opacity: 0.8; }
- 
-    .project-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
- 
+    .projects-bg { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .project-card { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
+    .project-card:hover { transform: translateY(-6px); box-shadow: var(--card-shadow-hover); }
+    .project-img { width: 100%; height: 200px; background: linear-gradient(135deg, var(--accent-light), #e0d5cf); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 32px; transition: opacity 0.3s; overflow: hidden; }
+    .project-card:hover .project-img { opacity: 0.9; }
+    .project-img img { width: 100%; height: 100%; object-fit: cover; }
     .project-body { padding: 24px; }
- 
-    .project-tags {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-    }
- 
-    .project-tag {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: var(--accent-light);
-      padding: 3px 10px;
-      border-radius: 100px;
-    }
- 
-    .project-body h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
- 
-    .project-date {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-      font-weight: 500;
-    }
- 
-    .project-desc {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
- 
-    .project-link {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--accent);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: gap 0.2s;
-    }
- 
+    .project-tags { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+    .project-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: var(--accent-light); padding: 3px 10px; border-radius: 100px; }
+    .project-body h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; margin-bottom: 8px; line-height: 1.3; }
+    .project-date { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; font-weight: 500; }
+    .project-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
+    .project-link { font-size: 13px; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
     .project-card:hover .project-link { gap: 10px; }
- 
-    /* ===== EXPERIENCE / TIMELINE ===== */
-    .timeline {
-      position: relative;
-      padding-left: 32px;
-    }
- 
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 8px; bottom: 8px;
-      width: 1px;
-      background: var(--border);
-    }
- 
-    .timeline-item {
-      position: relative;
-      margin-bottom: 48px;
-    }
- 
+
+    /* ===== TIMELINE ===== */
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: var(--border); }
+    .timeline-item { position: relative; margin-bottom: 48px; }
     .timeline-item:last-child { margin-bottom: 0; }
- 
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -36px;
-      top: 8px;
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--white);
-      border: 2px solid var(--accent);
-    }
- 
-    .timeline-date {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 6px;
-    }
- 
-    .timeline-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
- 
-    .timeline-org {
-      font-size: 13px;
-      color: var(--text-muted);
-      font-weight: 500;
-      margin-bottom: 12px;
-    }
- 
-    .timeline-desc {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.8;
-    }
- 
+    .timeline-item::before { content: ''; position: absolute; left: -36px; top: 8px; width: 10px; height: 10px; border-radius: 50%; background: var(--white); border: 2px solid var(--accent); }
+    .timeline-date { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+    .timeline-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; margin-bottom: 4px; }
+    .timeline-org { font-size: 13px; color: var(--text-muted); font-weight: 500; margin-bottom: 12px; }
+    .timeline-desc { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+
     /* ===== CONTACT ===== */
-    .contact-bg {
-      background: var(--text);
-      color: var(--white);
-    }
- 
+    .contact-bg { background: var(--text); color: var(--white); }
     .contact-bg .section-label { color: #c4956e; }
     .contact-bg .section-title { color: var(--white); }
- 
-    .contact-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
- 
-    .contact-desc {
-      font-size: 15px;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.9;
-      margin-bottom: 40px;
-    }
- 
-    .contact-email {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      font-style: italic;
-      color: #c4956e;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      transition: gap 0.2s;
-    }
- 
+    .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .contact-desc { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.9; margin-bottom: 40px; }
+    .contact-email { font-family: 'Playfair Display', serif; font-size: 24px; font-style: italic; color: #c4956e; display: flex; align-items: center; gap: 12px; transition: gap 0.2s; }
     .contact-email:hover { gap: 18px; }
- 
     .contact-form { display: flex; flex-direction: column; gap: 16px; }
- 
     .form-group { display: flex; flex-direction: column; gap: 8px; }
- 
-    .form-group label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-    }
- 
-    .form-group input,
-    .form-group textarea {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: var(--white);
-      padding: 12px 16px;
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      border-radius: 2px;
-      transition: border-color 0.2s;
-      outline: none;
-      resize: none;
-    }
- 
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: #c4956e;
-    }
- 
-    .form-group input::placeholder,
-    .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
- 
-    .btn-form {
-      background: #c4956e;
-      color: var(--white);
-      border: none;
-      padding: 14px 28px;
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      border-radius: 2px;
-      transition: background 0.2s, transform 0.2s;
-      align-self: flex-start;
-      margin-top: 8px;
-    }
- 
+    .form-group label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .form-group input, .form-group textarea { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: var(--white); padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 14px; border-radius: 2px; transition: border-color 0.2s; outline: none; resize: none; }
+    .form-group input:focus, .form-group textarea:focus { border-color: #c4956e; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+    .btn-form { background: #c4956e; color: var(--white); border: none; padding: 14px 28px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; border-radius: 2px; transition: background 0.2s, transform 0.2s; align-self: flex-start; margin-top: 8px; }
     .btn-form:hover { background: #b07d58; transform: translateY(-1px); }
- 
+
     /* ===== FOOTER ===== */
-    footer {
-      background: #111;
-      color: rgba(255,255,255,0.4);
-      text-align: center;
-      padding: 24px 56px;
-      font-size: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
- 
+    footer { background: #111; color: rgba(255,255,255,0.4); text-align: center; padding: 24px 56px; font-size: 12px; display: flex; justify-content: space-between; align-items: center; }
     footer .footer-socials { display: flex; gap: 16px; }
- 
-    footer a {
-      color: rgba(255,255,255,0.4);
-      font-size: 15px;
-      transition: color 0.2s;
-    }
- 
+    footer a { color: rgba(255,255,255,0.4); font-size: 15px; transition: color 0.2s; }
     footer a:hover { color: #c4956e; }
- 
+
     /* ===== SCROLL ANIMATIONS ===== */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
- 
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
- 
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
     .fade-up:nth-child(2) { transition-delay: 0.1s; }
     .fade-up:nth-child(3) { transition-delay: 0.2s; }
     .fade-up:nth-child(4) { transition-delay: 0.3s; }
- 
+
+    /* ===== MODAL ===== */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
+      display: flex; align-items: flex-end; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+    .modal {
+      background: var(--white); width: 100%; max-width: 820px;
+      max-height: 90vh; overflow-y: auto; border-radius: 12px 12px 0 0;
+      transform: translateY(40px); transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+      padding: 0;
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+
+    .modal-handle {
+      width: 40px; height: 4px; background: var(--border);
+      border-radius: 2px; margin: 16px auto 0;
+    }
+
+    .modal-header {
+      padding: 24px 40px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;
+    }
+    .modal-close {
+      width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 50%;
+      background: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 14px; color: var(--text-muted); flex-shrink: 0;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .modal-close:hover { border-color: var(--accent); color: var(--accent); }
+    .modal-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+    .modal-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: var(--accent-light); padding: 3px 10px; border-radius: 100px; }
+    .modal-header h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; line-height: 1.15; }
+    .modal-meta { font-size: 13px; color: var(--text-muted); margin-top: 6px; font-weight: 500; }
+
+    .modal-img {
+      width: 100%; height: 300px;
+      background: linear-gradient(135deg, var(--accent-light), #e0d5cf);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); font-size: 48px; 
+      overflow: hidden;
+    }
+    .modal-img img { width: 100%; height: 100%; object-fit: cover; opacity: 1; }
+
+    .modal-body {
+      padding: 36px 40px 48px;
+      display: grid; grid-template-columns: 1fr 220px; gap: 48px; align-items: start;
+    }
+
+    .modal-text h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; margin-top: 32px; }
+    .modal-text h3:first-child { margin-top: 0; }
+    .modal-text p { font-size: 14px; color: var(--text-muted); line-height: 1.9; margin-bottom: 12px; }
+    .modal-text ul { list-style: none; padding: 0; margin-bottom: 12px; }
+    .modal-text ul li { font-size: 14px; color: var(--text-muted); line-height: 1.8; padding-left: 18px; position: relative; margin-bottom: 8px; }
+    .modal-text ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 11px; top: 4px; }
+
+    .modal-sidebar { position: sticky; top: 20px; }
+    .modal-info-card { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 20px; margin-bottom: 12px; }
+    .modal-info-card:last-child { margin-bottom: 0; }
+    .modal-info-card h4 { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .info-item { margin-bottom: 14px; }
+    .info-item:last-child { margin-bottom: 0; }
+    .info-label { font-size: 10px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 3px; }
+    .info-value { font-size: 13px; font-weight: 500; }
+    .award-chip { background: var(--accent); color: white; border-radius: 4px; padding: 16px; text-align: center; }
+    .award-chip i { font-size: 22px; display: block; margin-bottom: 8px; }
+    .award-chip p { font-size: 12px; font-weight: 600; line-height: 1.5; }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
       nav { padding: 0 28px; }
@@ -648,21 +220,22 @@
       .hero-image img, .hero-image-placeholder { height: 280px; }
       .section { padding: 72px 28px; }
       .about-grid { grid-template-columns: 1fr; gap: 48px; }
-      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .projects-grid { grid-template-columns: 1fr; }
       .contact-inner { grid-template-columns: 1fr; gap: 48px; }
       footer { flex-direction: column; gap: 16px; text-align: center; }
+      .modal-body { grid-template-columns: 1fr; }
+      .modal-sidebar { position: static; }
+      .modal-header, .modal-body { padding-left: 24px; padding-right: 24px; }
     }
- 
     @media (max-width: 580px) {
-      .projects-grid { grid-template-columns: 1fr; }
       .about-stats { grid-template-columns: 1fr 1fr; }
       .nav-links { display: none; }
     }
   </style>
 </head>
- 
+
 <body>
- 
+
   <!-- ===== NAVBAR ===== -->
   <nav id="navbar">
     <div class="nav-logo">Juliette Côté</div>
@@ -673,18 +246,18 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
- 
+
   <!-- ===== HERO ===== -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <div class="hero-tag"><span></span> Open to opportunities</div>
+      <div class="hero-tag"><span></span> Open to opportunities · 🇨🇦 🇺🇸 Dual citizen · English · French</div>
       <h1>
-        Engineering<br>
+        Engineer,<br>
         student &<br>
-        <em>builder.</em>
+        <em>enthusiast.</em>
       </h1>
       <p class="hero-desc">
-        I'm Juliette — an undergraduate at Western University studying Mechatronics Systems and Biomedical Engineering. I build things, document them, and share them here.
+        I'm Juliette, an undergraduate at Western University studying Mechatronics Systems and Biomedical Engineering. I do things, document them, and share them here.
       </p>
       <div class="hero-actions">
         <a href="#projects" class="btn-primary">View My Work <i class="fa-solid fa-arrow-down"></i></a>
@@ -692,55 +265,46 @@
       </div>
       <div class="social-icons">
         <a href="mailto:juliette.cote8@gmail.com" title="Email"><i class="fa-regular fa-envelope"></i></a>
-        <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://linkedin.com/in/juliette-côté23b58a261" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
         <a href="https://github.com" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
       </div>
     </div>
- 
     <div class="hero-image">
-      <!-- If you have a photo: replace the placeholder div below with:
-           <img src="profile.jpeg" alt="Juliette Côté"> -->
-      <div class="hero-image-placeholder">
-        <i class="fa-regular fa-image"></i>
-        <p>Add profile.jpeg here</p>
+      <img src="profile.jpeg" alt="Juliette Côté"> 
+      
       </div>
     </div>
   </section>
- 
+
   <div class="section-divider"></div>
- 
+
   <!-- ===== ABOUT ===== -->
   <section class="section" id="about">
     <p class="section-label fade-up">About Me</p>
     <h2 class="section-title fade-up">Passionate about building<br><em style="font-family:'Playfair Display',serif; font-style:italic;">things that matter.</em></h2>
- 
     <div class="about-grid">
       <div class="about-text fade-up">
-        <p>
-          I'm a Mechatronics and Biomedical Engineering student at the University of Western Ontario, passionate about the intersection of hardware, software, and human-centered design.
-        </p>
-        <p>
-          When I'm not in class or the lab, I'm working on personal projects that push my skills — from embedded systems to machine learning applications. I believe in learning by building.
-        </p>
-        <p>
-          I'm currently looking for internship and co-op opportunities where I can contribute and grow. If you're working on something interesting, let's talk.
-        </p>
- 
+        <p>I'm a Mechatronics and Biomedical Engineering student at the University of Western Ontario, passionate about the intersection of hardware and software, but most importantly human-centered design.</p>
+        <p>When I'm not in class, I'm working on personal projects that push my skills. I believe in learning by doing!</p>
+        <p>I'm a Canadian-American dual citizen currently looking for full-time opportunities in Canada or the United States post-grad. If you're working on something interesting, let's chat!</p>
         <div class="skills-list">
+          <span class="skill-tag">Bilingual (EN/FR)</span>
+          <span class="skill-tag">Leadership</span>
           <span class="skill-tag">Python</span>
-          <span class="skill-tag">C++</span>
+          <span class="skill-tag">C / C++</span>
+          <span class="skill-tag">Java</span>
           <span class="skill-tag">HTML/CSS</span>
           <span class="skill-tag">MATLAB</span>
-          <span class="skill-tag">SolidWorks</span>
+          <span class="skill-tag">SolidWorks (CSWA)</span>
           <span class="skill-tag">Arduino</span>
-          <span class="skill-tag">Machine Learning</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">HMI / PLC</span>
           <span class="skill-tag">Embedded Systems</span>
         </div>
       </div>
- 
       <div class="about-stats fade-up">
         <div class="stat-card">
-          <div class="stat-number">3+</div>
+          <div class="stat-number">5+</div>
           <div class="stat-label">Years of engineering study</div>
         </div>
         <div class="stat-card">
@@ -752,181 +316,380 @@
           <div class="stat-label">Engineering disciplines</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">∞</div>
-          <div class="stat-label">Curiosity</div>
+          <div class="stat-number">A lot </div>
+          <div class="stat-label"> of curiosity</div>
         </div>
       </div>
     </div>
   </section>
- 
+
   <div class="section-divider"></div>
- 
+
   <!-- ===== PROJECTS ===== -->
   <div class="projects-bg">
     <section class="section" id="projects">
       <p class="section-label fade-up">Selected Work</p>
-      <h2 class="section-title fade-up">Things I've built.</h2>
-      <p class="section-subtitle fade-up">A selection of engineering and software projects I've worked on. Each one taught me something new.</p>
- 
+      <h2 class="section-title fade-up">Things I've done/built.</h2>
+      <p class="section-subtitle fade-up">Click any project to learn more!</p>
+
       <div class="projects-grid">
- 
-        <div class="project-card fade-up">
-          <div class="project-img">
-            <!-- Replace with: <img src="project1.jpeg" alt="Project 1"> -->
-            <i class="fa-solid fa-robot"></i>
+
+        <div class="project-card fade-up" onclick="openModal('tnbc')">
+          <div class="project-img"><img src="tnbc.jpg" alt="TNBC"></div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="project-tag">Leadership</span>
+              <span class="project-tag">National</span>
+              <span class="project-tag">Biomedical</span>
+            </div>
+            <h3>True North Biomedical Engineering Competition</h3>
+            <p class="project-date">Logistics Commissioner : 2025 - Present</p>
+            <p class="project-desc">Providing organizational leadership for a national biomedical engineering competition open to students across Canada.</p>
+            <span class="project-link">Learn more <i class="fa-solid fa-arrow-right"></i></span>
           </div>
+        </div>
+
+        <div class="project-card fade-up" onclick="openModal('soph')">
+          <div class="project-img"><img src="engsoph.jpg" alt="Soph"></div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="project-tag">Leadership</span>
+              <span class="project-tag">Mentorship</span>
+              <span class="project-tag">Western</span>
+            </div>
+            <h3>Western University Soph</h3>
+            <p class="project-date">Western University</p>
+            <p class="project-desc">Selected as a Soph, a student orientation leader to guide incoming first year students through Welcome Week.</p>
+            <span class="project-link">Learn more <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <div class="project-card fade-up" onclick="openModal('carm')">
+          <div class="project-img"><img src="carm.png" alt="Mini C-Arm"></div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="project-tag">Biomedical</span>
+              <span class="project-tag">Hardware</span>
+              <span class="project-tag">Imaging</span>
+            </div>
+            <h3>Mini C-Arm Project</h3>
+            <p class="project-date">Western University</p>
+            <p class="project-desc">Designed and developed a miniaturized C-arm fluoroscopic imaging device, replicating the core functionality of clinical equipment.</p>
+            <span class="project-link">View project <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <div class="project-card fade-up" onclick="openModal('robot')">
+          <div class="project-img"><img src="bot.png" alt="Autonomous Robot"></div>
           <div class="project-body">
             <div class="project-tags">
               <span class="project-tag">Robotics</span>
               <span class="project-tag">C++</span>
+              <span class="project-tag">Arduino</span>
             </div>
-            <h3>Project Title One</h3>
-            <p class="project-date">Month 2025</p>
-            <p class="project-desc">A short description of what this project does and what you learned from building it.</p>
-            <a href="#" class="project-link">View project <i class="fa-solid fa-arrow-right"></i></a>
+            <h3>Autonomous Object Sorting Robot</h3>
+            <p class="project-date">Western University</p>
+            <p class="project-desc">Built a robot that autonomously collects and categorizes colored objects using infrared tracking. 1st place among all mechatronics students.</p>
+            <span class="project-link">View project <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </div>
- 
-        <div class="project-card fade-up">
-          <div class="project-img">
-            <i class="fa-solid fa-microchip"></i>
-          </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="project-tag">Embedded</span>
-              <span class="project-tag">Python</span>
-            </div>
-            <h3>Project Title Two</h3>
-            <p class="project-date">Month 2025</p>
-            <p class="project-desc">A short description of what this project does and what you learned from building it.</p>
-            <a href="#" class="project-link">View project <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
- 
-        <div class="project-card fade-up">
-          <div class="project-img">
-            <i class="fa-solid fa-brain"></i>
-          </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="project-tag">ML</span>
-              <span class="project-tag">Python</span>
-            </div>
-            <h3>Project Title Three</h3>
-            <p class="project-date">Month 2025</p>
-            <p class="project-desc">A short description of what this project does and what you learned from building it.</p>
-            <a href="#" class="project-link">View project <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
- 
+
       </div>
     </section>
   </div>
- 
+
   <div class="section-divider"></div>
- 
+
   <!-- ===== EXPERIENCE ===== -->
   <section class="section" id="experience">
     <p class="section-label fade-up">Background</p>
     <h2 class="section-title fade-up">Education &<br><em style="font-family:'Playfair Display',serif; font-style:italic;">Experience.</em></h2>
     <p class="section-subtitle fade-up">My academic journey and hands-on experience so far.</p>
- 
     <div class="timeline">
       <div class="timeline-item fade-up">
-        <p class="timeline-date">2022 — Present</p>
-        <h3 class="timeline-title">B.ESc Mechatronics & Biomedical Engineering</h3>
-        <p class="timeline-org">University of Western Ontario</p>
-        <p class="timeline-desc">Studying the integration of mechanical, electrical, and software systems with applications in biomedical devices. Relevant coursework includes control systems, embedded programming, and biomechanics.</p>
+        <p class="timeline-date">Summers 2025 & 2026</p>
+        <h3 class="timeline-title">Nuclear Engineering Technologies Intern</h3>
+        <p class="timeline-org">Kinectrics, Toronto, ON</p>
+        <p class="timeline-desc">Designed and deployed an HMI touchscreen interface for a nuclear automation system monitoring irradiated isotope production for medical use, integrating Beckhoff TwinCAT and PLC logic. Advanced development of the legacy CWEST device, authored operator manuals, and partnered with human factors specialists on iterative design reviews.</p>
       </div>
- 
       <div class="timeline-item fade-up">
-        <p class="timeline-date">Add your experience</p>
-        <h3 class="timeline-title">Role / Position Title</h3>
-        <p class="timeline-org">Company or Organization</p>
-        <p class="timeline-desc">Describe what you did, what you built, and what you learned. Keep it concise but specific — numbers and outcomes are great here.</p>
+        <p class="timeline-date">May 2024 – Aug. 2024</p>
+        <h3 class="timeline-title">Software and Artificial Intelligence Intern</h3>
+        <p class="timeline-org">Bell, Toronto, ON</p>
+        <p class="timeline-desc">Automated data mapping processes, reducing manual workload by 30%. Designed and implemented unit tests for router configurations using Python, led daily Scrum meetings, and deployed and managed Kubernetes pods to optimize cloud resource usage.</p>
       </div>
- 
       <div class="timeline-item fade-up">
-        <p class="timeline-date">Add another</p>
-        <h3 class="timeline-title">Another Role or Project</h3>
-        <p class="timeline-org">Organization Name</p>
-        <p class="timeline-desc">Another experience entry. Could be a club, volunteer role, research position, or competition.</p>
+        <p class="timeline-date">2022 – Present</p>
+        <h3 class="timeline-title">B.ESc Mechatronics Systems & Biomedical Engineering</h3>
+        <p class="timeline-org">Western University, London, ON</p>
+        <p class="timeline-desc">Fifth-year student in a dual-degree engineering program. Dean's Honor List three consecutive years (2023–2024, 2024–2025, 2025–2026). Coursework spans control systems, embedded programming, biomechanics, design, and biomedical device development.</p>
+      </div>
+      <div class="timeline-item fade-up">
+        <p class="timeline-date">Graduated 2022</p>
+        <h3 class="timeline-title">Bilingual High School Diploma</h3>
+        <p class="timeline-org">École Secondaire Catholique, Aurora, ON</p>
+        <p class="timeline-desc">Graduated with official bilingual certification (average: 95%). Awarded Best Class Grade in Physics (2022).</p>
       </div>
     </div>
   </section>
- 
+
   <!-- ===== CONTACT ===== -->
   <div class="contact-bg" id="contact">
     <section class="section">
       <p class="section-label fade-up">Let's Talk</p>
       <h2 class="section-title fade-up">Get in touch.</h2>
- 
       <div class="contact-inner">
         <div class="fade-up">
-          <p class="contact-desc">
-            Whether you have an opportunity, a question, or just want to say hello — my inbox is always open. I'll get back to you as soon as I can.
-          </p>
-          <a href="mailto:juliette.cote8@gmail.com" class="contact-email">
-            juliette.cote8@gmail.com <i class="fa-solid fa-arrow-right"></i>
-          </a>
+          <p class="contact-desc">Whether you have an opportunity, a question, or just want to say hello, my inbox is always open. I'll get back to you as soon as I can.</p>
+          <a href="mailto:juliette.cote8@gmail.com" class="contact-email">juliette.cote8@gmail.com <i class="fa-solid fa-arrow-right"></i></a>
         </div>
- 
         <form class="contact-form fade-up" onsubmit="handleSubmit(event)">
-          <div class="form-group">
-            <label>Your Name</label>
-            <input type="text" placeholder="Jane Smith" required>
-          </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" placeholder="jane@email.com" required>
-          </div>
-          <div class="form-group">
-            <label>Message</label>
-            <textarea rows="5" placeholder="What's on your mind?" required></textarea>
-          </div>
+          <div class="form-group"><label>Your Name</label><input type="text" placeholder="Jane Smith" required></div>
+          <div class="form-group"><label>Email</label><input type="email" placeholder="jane@email.com" required></div>
+          <div class="form-group"><label>Message</label><textarea rows="5" placeholder="What's on your mind?" required></textarea></div>
           <button type="submit" class="btn-form">Send Message <i class="fa-solid fa-paper-plane"></i></button>
         </form>
       </div>
     </section>
   </div>
- 
+
   <!-- ===== FOOTER ===== -->
   <footer>
-    <span>© 2025 Juliette Côté. All rights reserved.</span>
+    <span>© 2026 Juliette Côté. All rights reserved.</span>
     <div class="footer-socials">
       <a href="mailto:juliette.cote8@gmail.com"><i class="fa-regular fa-envelope"></i></a>
-      <a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://linkedin.com/in/juliette-côté23b58a261" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
       <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
     </div>
   </footer>
- 
+
+  <!-- ===== MODALS ===== -->
+
+  <!-- TNBC Modal -->
+  <div class="modal-overlay" id="modal-tnbc" onclick="closeOnOverlay(event, 'tnbc')">
+    <div class="modal">
+      <div class="modal-handle"></div>
+      <div class="modal-header">
+        <div>
+          <div class="modal-tags">
+            <span class="modal-tag">Leadership</span>
+            <span class="modal-tag">National</span>
+            <span class="modal-tag">Biomedical Engineering</span>
+          </div>
+          <h2>True North Biomedical Engineering Competition</h2>
+          <p class="modal-meta">Logistics Commissioner · 2025 – Present</p>
+        </div>
+        <button class="modal-close" onclick="closeModal('tnbc')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-img">
+        <img src="tnbc2.jpeg" alt="TNBC"> 
+        
+      </div>
+      <div class="modal-body">
+        <div class="modal-text">
+          <h3>Overview</h3>
+          <p>The True North Biomedical Engineering Competition (TNBC) is a national student competition bringing together biomedical engineering teams from universities across Canada to solve real-world clinical challenges. As Logistics Commissioner, I hold one of the primary leadership positions responsible for making the competition run.</p>
+          <h3>My Role</h3>
+          <ul>
+            <li>Define competition scope, structure, timelines and specifics from the ground up each cycle</li>
+            <li>Identify and secure sponsors and judges, along with creating clinical test cases for competing teams</li>
+            <li>Coordinate all competition-day logistics including scheduling and team communications</li>
+            <li>Prepare traceability documentation and release files as the primary reference for all teams</li>
+            <li>Maintain weekly communication with participating schools to enforce deadlines</li>
+            <li>Engage universities across Canada to expand participation and grow the competition's reach</li>
+          </ul>
+          <h3>What I Learned</h3>
+          <p>Running a national competition pushed me to develop skills my leadership skills, managing stakeholders with competing priorities, communicating clearly under pressure, and making judgment calls when no playbook exists.</p>
+        </div>
+        <div class="modal-sidebar">
+          <div class="modal-info-card">
+            <h4>Details</h4>
+            <div class="info-item"><p class="info-label">Role</p><p class="info-value">Logistics Commissioner</p></div>
+            <div class="info-item"><p class="info-label">Duration</p><p class="info-value">2025 – Present</p></div>
+            <div class="info-item"><p class="info-label">Type</p><p class="info-value">National Student Competition</p></div>
+            <div class="info-item"><p class="info-label">Skills</p><p class="info-value">Event logistics, stakeholder management, technical documentation</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soph Modal -->
+  <div class="modal-overlay" id="modal-soph" onclick="closeOnOverlay(event, 'soph')">
+    <div class="modal">
+      <div class="modal-handle"></div>
+      <div class="modal-header">
+        <div>
+          <div class="modal-tags">
+            <span class="modal-tag">Leadership</span>
+            <span class="modal-tag">Mentorship</span>
+            <span class="modal-tag">Western University</span>
+          </div>
+          <h2>Western University Soph</h2>
+          <p class="modal-meta">Orientation Week Leader · Western University</p>
+        </div>
+        <button class="modal-close" onclick="closeModal('soph')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-img">
+        <img src="engsoph.jpg" alt="Soph"> 
+        
+      </div>
+      <div class="modal-body">
+        <div class="modal-text">
+          <h3>Overview</h3>
+          <p>Every September, Western University's incoming class is welcomed by Sophs, a group of returning students selected for their energy, leadership, devotion, and genuine passion for the Western community. Being chosen as a Soph is competitive, and the role carries real responsibility.</p>
+          <h3>What I Did</h3>
+          <ul>
+            <li>Guided a group of first-year students through Welcome Week events and orientation activities</li>
+            <li>Helped new students navigate campus, understand resources, and connect with the community</li>
+            <li>Led group activities and created a welcoming environment from day one</li>
+            <li>Represented Western Engineering as a positive role model for incoming students</li>
+          </ul>
+          <h3>What I Learned</h3>
+          <p>Being a Soph reinforced how much I value community and mentorship. It made me a better communicator and a more patient, empathetic leader, skills I carry into every team environment I work in.</p>
+        </div>
+        <div class="modal-sidebar">
+          <div class="modal-info-card">
+            <h4>Details</h4>
+            <div class="info-item"><p class="info-label">Role</p><p class="info-value">Orientation Week Leader</p></div>
+            <div class="info-item"><p class="info-label">Organization</p><p class="info-value">Western University</p></div>
+            <div class="info-item"><p class="info-label">Skills</p><p class="info-value">Mentorship, public speaking, community building</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C-Arm Modal -->
+  <div class="modal-overlay" id="modal-carm" onclick="closeOnOverlay(event, 'carm')">
+    <div class="modal">
+      <div class="modal-handle"></div>
+      <div class="modal-header">
+        <div>
+          <div class="modal-tags">
+            <span class="modal-tag">Biomedical Engineering</span>
+            <span class="modal-tag">Hardware</span>
+            <span class="modal-tag">Medical Imaging</span>
+          </div>
+          <h2>Mini C-Arm Project</h2>
+          <p class="modal-meta">Biomedical Engineering · Western University</p>
+        </div>
+        <button class="modal-close" onclick="closeModal('carm')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-img">
+        <img src="carm2.heic" alt="Mini C-Arm">
+      </div>
+      <div class="modal-body">
+        <div class="modal-text">
+          <h3>Overview</h3>
+          <p>A C-arm is a medical imaging device used in real-time fluoroscopic imaging during surgical and orthopedic procedures. This project involved designing and building a scaled-down version that captures the core mechanical and functional principles of clinical C-arm equipment.</p>
+          <h3>What I Built</h3>
+          <ul>
+            <li>Designed the mechanical C-shaped arm structure to achieve the correct imaging geometry</li>
+            <li>Integrated imaging components and ensured alignment between source and detector</li>
+            <li>Worked on system-level integration to produce a functional, cohesive device</li>
+          </ul>
+          <h3>What I Learned</h3>
+          <p>This project deepened my understanding of medical imaging physics and the engineering constraints that come with designing devices for clinical environments. It bridged mechanical and biomedical engineering in a way few courses do.</p>
+        </div>
+        <div class="modal-sidebar">
+          <div class="modal-info-card">
+            <h4>Details</h4>
+            <div class="info-item"><p class="info-label">Type</p><p class="info-value">Biomedical Engineering Project</p></div>
+            <div class="info-item"><p class="info-label">Institution</p><p class="info-value">Western University</p></div>
+            <div class="info-item"><p class="info-label">Skills</p><p class="info-value">Medical imaging, hardware design, mechanical integration</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Robot Modal -->
+  <div class="modal-overlay" id="modal-robot" onclick="closeOnOverlay(event, 'robot')">
+    <div class="modal">
+      <div class="modal-handle"></div>
+      <div class="modal-header">
+        <div>
+          <div class="modal-tags">
+            <span class="modal-tag">Robotics</span>
+            <span class="modal-tag">C++</span>
+            <span class="modal-tag">Arduino</span>
+          </div>
+          <h2>Autonomous Object Sorting Robot</h2>
+          <p class="modal-meta">Mechatronics Engineering · Western University</p>
+        </div>
+        <button class="modal-close" onclick="closeModal('robot')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-img">
+        <img src="bot2.png" alt="Robot">
+
+      </div>
+      <div class="modal-body">
+        <div class="modal-text">
+          <h3>Overview</h3>
+          <p>This project tasked us with building a robot capable of autonomously navigating an arena, identifying colored gems, collecting them, and sorting them into the correct categories, all without human input during the run. I was responsible for both the software logic and hardware design.</p>
+          <h3>How It Works</h3>
+          <ul>
+            <li>Used infrared sensors to detect and track objects on the arena floor</li>
+            <li>Implemented color-sensing logic to categorize gems before sorting</li>
+            <li>Designed the navigation algorithm to efficiently sweep the arena and avoid collisions</li>
+            <li>Built and iterated on the mechanical sorting mechanism to reliably deposit gems into correct bins</li>
+            <li>Integrated all software and hardware components into a single cohesive system</li>
+          </ul>
+          <h3>Result</h3>
+          <p>Achieved 1st place among all mechatronics students, correctly sorting the highest number of colored gems in the timed competition run. The win came down to the reliability of the sorting mechanism and the efficiency of the navigation algorithm under real-world conditions.</p>
+        </div>
+        <div class="modal-sidebar">
+          <div class="award-chip modal-info-card">
+            <i class="fa-solid fa-trophy"></i>
+            <p>1st Place : most gems sorted among all mechatronics students</p>
+          </div>
+          <div class="modal-info-card">
+            <h4>Details</h4>
+            <div class="info-item"><p class="info-label">Technologies</p><p class="info-value">C++, Arduino, infrared sensors, color sensors</p></div>
+            <div class="info-item"><p class="info-label">Skills</p><p class="info-value">Embedded systems, robotics, hardware/software integration</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // Navbar shadow on scroll
+    // Navbar
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 20);
-    });
- 
-    // Scroll fade-in animations
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
+
+    // Fade-in animations
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.12 });
- 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
- 
-    // Contact form (opens mail client as fallback)
+
+    // Modal
+    function openModal(id) {
+      document.getElementById('modal-' + id).classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id) {
+      document.getElementById('modal-' + id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closeOnOverlay(e, id) {
+      if (e.target === e.currentTarget) closeModal(id);
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(m => {
+        m.classList.remove('open'); document.body.style.overflow = '';
+      });
+    });
+
+    // Contact form
     function handleSubmit(e) {
       e.preventDefault();
-      const name = e.target[0].value;
-      const email = e.target[1].value;
-      const message = e.target[2].value;
+      const name = e.target[0].value, email = e.target[1].value, message = e.target[2].value;
       window.location.href = `mailto:juliette.cote8@gmail.com?subject=Portfolio Contact from ${name}&body=${encodeURIComponent(message)}%0A%0AFrom: ${email}`;
     }
   </script>
- 
+
 </body>
 </html>
